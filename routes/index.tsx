@@ -16,9 +16,9 @@ export default function Home() {
               href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"
             >
               Web Audio API
-            </a>. You can adjust frequency and volume.
+            </a>. You can adjust frequency and volume.{" "}
             <a
-              class="text-sm"
+              class="text-sm text-blue-500"
               href="https://github.com/ayame113/sine-wave.deno.dev"
             >
               GitHub
