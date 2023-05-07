@@ -2,6 +2,8 @@
 
 Outputs sine wave audio using Web Audio API.
 
+https://sine-wave.deno.dev/
+
 ### Usage
 
 Start the project:

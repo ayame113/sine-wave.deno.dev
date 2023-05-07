@@ -17,7 +17,12 @@ export default function Home() {
             >
               Web Audio API
             </a>. You can adjust frequency and volume.
-            <a class="text-sm">GitHub</a>
+            <a
+              class="text-sm"
+              href="https://github.com/ayame113/sine-wave.deno.dev"
+            >
+              GitHub
+            </a>
           </p>
           <EarAgeChecker />
         </div>
