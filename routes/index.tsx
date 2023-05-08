@@ -32,7 +32,7 @@ export default function Home() {
         />
         <link
           href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&amp;display=swap"
-          rel="stylesheet"
+          rel="preload"
           as="style"
           {...{ onload: "this.rel='stylesheet'" }}
         />

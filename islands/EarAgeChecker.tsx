@@ -13,6 +13,7 @@ export default function EarAgeChecker() {
           frequency:
         </div>
         <input
+          aria-label="frequency"
           class="flex-grow"
           type="range"
           min="0"
@@ -20,8 +21,9 @@ export default function EarAgeChecker() {
           value={frequency}
           onInput={(e) => setFrequency(+e.currentTarget.value)}
         />
-        <div class="w-[6em]">
+        <div class="w-[7em]">
           <input
+            aria-label="frequency"
             class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
             type="number"
             min="0"
@@ -37,20 +39,22 @@ export default function EarAgeChecker() {
           volume:
         </div>
         <input
+          aria-label="volume"
           class="flex-grow"
           type="range"
           min="0"
-          max="0.3"
+          max="0.5"
           step="0.001"
           value={gain}
           onInput={(e) => (setEnabled(true), setGain(+e.currentTarget.value))}
         />
-        <div class="w-[6em]">
+        <div class="w-[7em]">
           <input
+            aria-label="volume"
             class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
             type="number"
             min="0"
-            max="0.3"
+            max="0.5"
             step="0.001"
             value={gain}
             onInput={(e) => (setEnabled(true), setGain(+e.currentTarget.value))}

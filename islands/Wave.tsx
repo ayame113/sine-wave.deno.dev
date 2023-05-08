@@ -10,6 +10,24 @@ export default function Wave() {
     const ctx = canvas.getContext("2d");
 
     let diff = 0;
+
+    // const abortController = new AbortController();
+    // globalThis.addEventListener("mousemove", () => {
+    //   console.log("a");
+    //   abortController.abort();
+    //   render();
+    // }, { signal: abortController.signal });
+
+    // function render() {
+    //   if (!ctx) {
+    //     return;
+    //   }
+    //   diff++;
+    //   diff %= 360;
+    //   renderWave(ctx, diff);
+    //   animationFrameId = requestAnimationFrame(render);
+    // }
+
     let animationFrameId = requestAnimationFrame(function render() {
       if (!ctx) {
         return;
@@ -19,8 +37,28 @@ export default function Wave() {
       renderWave(ctx, diff);
       animationFrameId = requestAnimationFrame(render);
     });
+
+    // if (ctx) {
+    //   renderWave(ctx, diff);
+    // }
+
+    // let animationFrameId: number | undefined;
+    // requestIdleCallbackPolyfill(() => {
+    //   animationFrameId = requestAnimationFrame(function render() {
+    //     if (!ctx) {
+    //       return;
+    //     }
+    //     diff++;
+    //     diff %= 360;
+    //     renderWave(ctx, diff);
+    //     animationFrameId = requestAnimationFrame(render);
+    //   });
+    // });
+
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId !== undefined) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
   return <canvas class="w-full h-full" width="1000" height="500" ref={ref} />;
@@ -40,4 +78,12 @@ function renderWave(ctx: CanvasRenderingContext2D, diff: number) {
   ctx.lineTo(ctx.canvas.width, ctx.canvas.height);
   ctx.closePath();
   ctx.fill();
+}
+
+function requestIdleCallbackPolyfill(callback: () => void) {
+  if (typeof globalThis.requestIdleCallback === "function") {
+    requestIdleCallback(callback);
+  } else {
+    setTimeout(callback, 1000);
+  }
 }
