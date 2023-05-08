@@ -46,17 +46,19 @@ export default function Home() {
             <p class="my-6">
               Outputs sine wave audio using{" "}
               <a
-                class="text-blue-500"
+                class="text-blue-500 hover:underline"
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"
               >
                 Web Audio API
               </a>. You can adjust frequency and volume.{" "}
-              <a
-                class="text-sm text-blue-500"
-                href="https://github.com/ayame113/sine-wave.deno.dev"
-              >
-                GitHub
-              </a>
+              <span class="text-sm">
+                [<a
+                  class="text-blue-500 hover:underline"
+                  href="https://github.com/ayame113/sine-wave.deno.dev"
+                >
+                  GitHub
+                </a>]
+              </span>
             </p>
             <EarAgeChecker />
           </div>

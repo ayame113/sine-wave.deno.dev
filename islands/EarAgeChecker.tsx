@@ -8,7 +8,7 @@ export default function EarAgeChecker() {
 
   return (
     <div>
-      <div class="flex">
+      <div class="flex my-2">
         <div class="w-[5em]">
           frequency:
         </div>
@@ -22,7 +22,7 @@ export default function EarAgeChecker() {
         />
         <div class="w-[6em]">
           <input
-            class="w-[4em] text-right"
+            class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
             type="number"
             min="0"
             max="24000"
@@ -32,7 +32,7 @@ export default function EarAgeChecker() {
           Hz
         </div>
       </div>
-      <div class="flex">
+      <div class="flex my-2">
         <div class="w-[5em]">
           volume:
         </div>
@@ -47,7 +47,7 @@ export default function EarAgeChecker() {
         />
         <div class="w-[6em]">
           <input
-            class="w-[4em] text-right"
+            class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
             type="number"
             min="0"
             max="0.3"
