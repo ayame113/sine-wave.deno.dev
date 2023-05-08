@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import type { JSX } from "preact";
 
 export default function EarAgeChecker() {
   const [enabled, setEnabled] = useState(false);
@@ -8,59 +9,24 @@ export default function EarAgeChecker() {
 
   return (
     <div>
-      <div class="flex my-2">
-        <div class="w-[5em]">
-          frequency:
-        </div>
-        <input
-          aria-label="frequency"
-          class="flex-grow"
-          type="range"
-          min="0"
-          max="24000"
-          value={frequency}
-          onInput={(e) => setFrequency(+e.currentTarget.value)}
-        />
-        <div class="w-[7em]">
-          <input
-            aria-label="frequency"
-            class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
-            type="number"
-            min="0"
-            max="24000"
-            value={frequency}
-            onInput={(e) => setFrequency(+e.currentTarget.value)}
-          />
-          Hz
-        </div>
-      </div>
-      <div class="flex my-2">
-        <div class="w-[5em]">
-          volume:
-        </div>
-        <input
-          aria-label="volume"
-          class="flex-grow"
-          type="range"
-          min="0"
-          max="0.5"
-          step="0.001"
-          value={gain}
-          onInput={(e) => (setEnabled(true), setGain(+e.currentTarget.value))}
-        />
-        <div class="w-[7em]">
-          <input
-            aria-label="volume"
-            class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
-            type="number"
-            min="0"
-            max="0.5"
-            step="0.001"
-            value={gain}
-            onInput={(e) => (setEnabled(true), setGain(+e.currentTarget.value))}
-          />
-        </div>
-      </div>
+      <Form
+        label="frequency"
+        unit="Hz"
+        value={frequency}
+        min={0}
+        max={24000}
+        step={1}
+        onInput={(e) => setFrequency(+e.currentTarget.value)}
+      />
+      <Form
+        label="volume"
+        unit=""
+        value={gain}
+        min={0}
+        max={0.5}
+        step={0.001}
+        onInput={(e) => (setEnabled(true), setGain(+e.currentTarget.value))}
+      />
       <div class="text-center">
         <button
           class="p-1 mx-4 my-2 bg-green-200 rounded shadow text-lg active:bg-green-100"
@@ -74,6 +40,47 @@ export default function EarAgeChecker() {
         >
           ■ Stop
         </button>
+      </div>
+    </div>
+  );
+}
+
+interface FormProps {
+  label: string;
+  unit: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onInput(event: JSX.TargetedEvent<HTMLInputElement, Event>): void;
+}
+
+function Form(props: FormProps) {
+  return (
+    <div class="flex my-2">
+      <div class="w-[5em]">{props.label}:</div>
+      <input
+        aria-label={props.label}
+        class="flex-grow"
+        type="range"
+        min={props.min}
+        max={props.max}
+        value={props.value}
+        step={props.step}
+        onInput={props.onInput}
+      />
+      <div class="w-[7em]">
+        <input
+          aria-label="frequency"
+          class="w-[4em] text-right bg-gray-200 rounded-md mx-2 focus:bg-white"
+          type="number"
+          min={props.min}
+          max={props.max}
+          value={props.value}
+          step={props.step}
+          onInput={props.onInput}
+        />
+        {props.unit}
       </div>
     </div>
   );

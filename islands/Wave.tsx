@@ -42,11 +42,3 @@ function renderWave(ctx: CanvasRenderingContext2D, diff: number) {
   ctx.closePath();
   ctx.fill();
 }
-
-function requestIdleCallbackPolyfill(callback: () => void) {
-  if (typeof globalThis.requestIdleCallback === "function") {
-    requestIdleCallback(callback);
-  } else {
-    setTimeout(callback, 1000);
-  }
-}

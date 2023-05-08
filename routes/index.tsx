@@ -48,6 +48,7 @@ export default function Home() {
               <a
                 class="text-blue-500 hover:underline"
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"
+                target="_brank"
               >
                 Web Audio API
               </a>. You can adjust frequency and volume.{" "}
@@ -55,6 +56,7 @@ export default function Home() {
                 [<a
                   class="text-blue-500 hover:underline"
                   href="https://github.com/ayame113/sine-wave.deno.dev"
+                  target="_brank"
                 >
                   GitHub
                 </a>]
