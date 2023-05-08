@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 
-export default function Counter() {
+export default function EarAgeChecker() {
   const [enabled, setEnabled] = useState(false);
   const [frequency, setFrequency] = useState(400);
   const [gain, setGain] = useState(0);
@@ -57,15 +57,15 @@ export default function Counter() {
           />
         </div>
       </div>
-      <div class="text-right">
+      <div class="text-center">
         <button
-          class="p-1 mx-4 bg-green-200 rounded shadow text-sm"
+          class="p-1 mx-4 my-2 bg-green-200 rounded shadow text-lg active:bg-green-100"
           onClick={() => (setEnabled(true), setGain(0.03))}
         >
           ▶ Start
         </button>
         <button
-          class="p-1 mx-4 bg-red-200 rounded shadow text-sm"
+          class="p-1 mx-4 my-2 bg-red-200 rounded shadow text-lg active:bg-red-100"
           onClick={() => setGain(0)}
         >
           ■ Stop
