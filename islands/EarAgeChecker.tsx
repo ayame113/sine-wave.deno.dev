@@ -1,3 +1,4 @@
+import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useEffect, useState } from "preact/hooks";
 import type { JSX } from "preact";
 
@@ -31,12 +32,14 @@ export default function EarAgeChecker() {
         <button
           class="p-1 mx-4 my-2 bg-green-200 rounded shadow text-lg active:bg-green-100"
           onClick={() => (setEnabled(true), setGain(0.03))}
+          disabled={!IS_BROWSER}
         >
           ▶ Start
         </button>
         <button
           class="p-1 mx-4 my-2 bg-red-200 rounded shadow text-lg active:bg-red-100"
           onClick={() => setGain(0)}
+          disabled={!IS_BROWSER}
         >
           ■ Stop
         </button>
@@ -68,6 +71,7 @@ function Form(props: FormProps) {
         value={props.value}
         step={props.step}
         onInput={props.onInput}
+        disabled={!IS_BROWSER}
       />
       <div class="w-[7em]">
         <input
@@ -79,6 +83,7 @@ function Form(props: FormProps) {
           value={props.value}
           step={props.step}
           onInput={props.onInput}
+          disabled={!IS_BROWSER}
         />
         {props.unit}
       </div>
